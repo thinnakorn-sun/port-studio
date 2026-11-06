@@ -21,26 +21,25 @@ npm start
 ```
 
 `npm run build` also generates a static deployment in `out/` because
-`next.config.ts` enables `output: 'export'`. Serve that folder with a static host;
-for the static-export configuration use `npx serve out` instead of `npm start`.
+`next.config.ts` enables `output: 'export'`. `npm start` serves that folder locally using `serve`; it can also be deployed to any static host.
 No API keys, database or account are required.
 
 ## Architecture
 
-| Directory | Owns |
-| --- | --- |
-| `src/app` | Next.js App Router entry points, metadata, global tokens/reset |
-| `src/domain/engine` | Pure kinematics and time-area mathematics |
-| `src/domain/ports` | Port/project types, outlines, validation and defaults |
-| `src/features/studio/components` | React workspace and focused UI panels |
-| `src/features/studio/state` | Pure commands, reducer, undo/redo |
-| `src/features/studio/hooks` | React state orchestration and persistence lifecycle |
-| `src/rendering/three` | Three.js mesh adapter; no UI or file access |
-| `src/infrastructure/projects` | Browser storage and validated file import |
-| `src/infrastructure/export` | SVG/CSV/JSON serialization and browser download |
-| `src/shared/ui` | Reusable number field and display formatting |
-| `tests` | Engineering invariants, validation, state and export checks |
-| `docs` | Architecture rules and mathematical provenance/limits |
+| Directory                        | Owns                                                           |
+| -------------------------------- | -------------------------------------------------------------- |
+| `src/app`                        | Next.js App Router entry points, metadata, global tokens/reset |
+| `src/domain/engine`              | Pure kinematics and time-area mathematics                      |
+| `src/domain/ports`               | Port/project types, outlines, validation and defaults          |
+| `src/features/studio/components` | React workspace and focused UI panels                          |
+| `src/features/studio/state`      | Pure commands, reducer, undo/redo                              |
+| `src/features/studio/hooks`      | React state orchestration and persistence lifecycle            |
+| `src/rendering/three`            | Three.js mesh adapter; no UI or file access                    |
+| `src/infrastructure/projects`    | Browser storage and validated file import                      |
+| `src/infrastructure/export`      | SVG/CSV/JSON serialization and browser download                |
+| `src/shared/ui`                  | Reusable number field and display formatting                   |
+| `tests`                          | Engineering invariants, validation, state and export checks    |
+| `docs`                           | Architecture rules and mathematical provenance/limits          |
 
 See [architecture](docs/architecture.md) and [mathematics](docs/mathematics.md).
 
